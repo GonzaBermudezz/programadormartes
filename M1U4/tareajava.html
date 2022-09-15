@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        let vehiculo
+        let distancia = 50000
+        if (distancia > 100000) {
+            vehiculo = "avion";
+        }
+        else if (distancia > 30000) {
+            vehiculo = "auto";
+        }
+        else if (distancia > 10000) {
+            vehiculo = "colectivo";
+        }
+        else if (distancia > 10000) {
+            vehiculo = "bicicleta";
+        }
+        else if (distancia > 0) {
+            vehiculo = "pie";
+        }
+
+        alert(vehiculo)
+
+        let array = [1, 5, 8, 4, 2, 9, 3, 10, 7]
+        let mayor = array[0];
+        for (let i = 1; i < array.length; i++) {
+            if (array[i] > mayor) {
+                mayor = array[i]
+            }
+        }
+        
+        alert(mayor)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
