@@ -1,0 +1,21 @@
+.contenedor {
+    display: flex;
+}
+
+.cuadradored {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+.cuadradoblue {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+
+.cuadradogreen {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+}
