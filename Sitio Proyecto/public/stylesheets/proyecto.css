@@ -1,0 +1,167 @@
+h1,
+h2 {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+}
+.hero {
+  background: url(../images/cancha.jpg) no-repeat;
+  background-size: cover;
+  height: 80vh;
+  min-height: 800px;
+  color: rgb(245, 241, 241);
+}
+
+.lista-novedades {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-novedades li {
+  margin: 4px 0;
+}
+
+.lista-novedades li a {
+  background-color: rgb(255, 255, 255);
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  transition: all 0.2s ease-in-out;
+  display: block;
+}
+
+.lista-novedades li a:hover {
+  color: rgb(219, 1, 1);
+  background-color: #1e448d;
+}
+
+.lista-novedades li a img {
+  width: 100px;
+  height: 100px;
+  filter: grayscale();
+  transition: all 0.2s ease-in-out;
+  margin-right: 1rem;
+  opacity: 0.7;
+}
+
+.lista-novedades li a:hover img {
+  filter: none;
+  margin-right: 1.4rem;
+  opacity: 1;
+}
+
+.testimonios {
+  background-color: #f0ebeb;
+  padding-bottom: 0rem !important;
+  width: 600px;
+  margin-left: 150px;
+}
+
+.testimonio {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.navbar {
+  background-color: #1e448d;
+}
+
+.imagen {
+  padding-top: 50px;
+}
+
+.img-fluid {
+  width: 300px;
+  height: 300px;
+  margin-right: 1000px;
+}
+
+.Nosotros {
+  width: 100px;
+  height: 100px;
+  padding-right: 500px;
+}
+
+.staff {
+  background-color: #1e448d;
+}
+
+.mapa iframe {
+  width: 100%;
+  aspect-ratio: 1.2;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll_section {
+  scroll-margin-top: 60px;
+}
+
+.slider {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider ul {
+    display: flex;
+    padding: 0;
+    width: 400%;
+
+    animation:cambio 20s infinite alternate;
+}
+
+.slider li {
+    width: 100%;
+    list-style: none;
+}
+
+.slider img {
+    width: 100%;
+    height: 1000px;
+    position:relative;
+}
+
+@keyframes cambio {
+    0% {margin-left: 0;}
+    20% { margin-left: 0;}
+    25% {margin-left: -100%;}
+    45% {margin-left: -100%;}
+    50% {margin-left: -200%;}
+    70% {margin-left: -200%;}
+    75% {margin-left: -300%;}
+    100% {margin-left: -300%;}
+}
+
+h3 {
+  background: url(../images/vestuario.jpg) no-repeat;
+  display: inline-block;
+  background-size: cover;
+  width: 800px;
+  height: 800px;
+  margin: 50px;
+}
+
+h4{
+  background: url(../images/1902-Escudo.jpg) no-repeat;
+  display: inline-block;
+  width: 800px;
+  height: 800px;
+  background-size: cover;
+  margin: 50px;
+}
+
+h5{
+  background: url(../images/cancha.jpg) no-repeat;
+  display: inline-block;
+  width: 800px;
+  height: 800px;
+  background-size: cover;
+  margin: 50px;
+}
