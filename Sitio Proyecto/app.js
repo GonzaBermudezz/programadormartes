@@ -5,14 +5,16 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 require("dotenv").config();
+var session = require ('express-session');
 
 var visitanosRouter = require("./routes/visitanos");
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
 var plantelRouter = require("./routes/plantel");
 var novedadesRouter = require("./routes/novedades");
 var historiaRouter = require("./routes/historia");
-
+var loginRouter = require("./routes/admin/login");
+var inicioRouter = require("./routes/inicio");
+var adminRouter = require("./routes/admin/success");
 
 var app = express();
 
@@ -26,35 +28,74 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use (session ({
+  secret: '98a76s54d43g21h12a24',
+  resave: false,
+  saveUninitialized: true,
+}))
+
+secured = async(req,res,next) => {
+  try{
+    console.log(req.session.id_usuario);
+    if(req.session.id_usuario){
+      next();
+    }else { 
+      res.redirect ('/admin/login');
+    }
+  }catch(error){
+    console.log(error);
+  }
+    }
+  
+app.use("/inicio", inicioRouter);
 app.use("/visitanos", visitanosRouter);
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
-app.use("/plantel",plantelRouter);
-app.use("/novedades",novedadesRouter);
-app.use("/historia",historiaRouter);
+app.use("/plantel", plantelRouter);
+app.use("/novedades", novedadesRouter);
+app.use("/historia", historiaRouter);
+app.use("/admin/login", loginRouter);
+app.use("/admin/success", secured, adminRouter);
 
+//pool.query('select * from usuarios').then(function(resultados){
+//  console.log(resultados)
+//});
 
-app.get('/visitanos' , function(req,res){
-  res.render('visitanos')
-})
+app.get("/inicio", function (req, res) {
+  res.render("inicio");
+});
 
-app.get('/plantel' , function(req,res){
-  res.render('plantel')
-})
+app.get("/visitanos", function (req, res) {
+  res.render("visitanos");
+});
 
-app.get('/novedades' , function(req,res){
-  res.render('novedades')
-})
+app.get("/plantel", function (req, res) {
+  res.render("plantel");
+});
 
-app.get('/historia' , function(req,res){
-  res.render('historia')
-})
+app.get("/novedades", function (req, res) {
+  res.render("novedades");
+});
 
+app.get("/historia", function (req, res) {
+  res.render("historia");
+});
 
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
-})
+app.get("/", function (req, res) {
+  res.render("index");
+});
+
+//app.get('/',function(req,res){
+// res.render('admin/login')
+//});
+
+//app.get('/',function(req,res){
+//  res.render('admin/novedades')
+//});
+
+//catch 404 and forward to error handler
+//app.use(function (req, res, next) {
+//next(createError(404));
+//});
 
 // error handler
 app.use(function (err, req, res, next) {
